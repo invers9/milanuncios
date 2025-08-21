@@ -6,7 +6,7 @@ import svgr from 'vite-plugin-svgr'
 export default defineConfig({
   assetsInclude: ['**/*.woff2'],
   build: {
-    outDir: 'milanuncious'
+    outDir: 'milanuncios'
   },
   plugins: [react(), svgr()]
 })

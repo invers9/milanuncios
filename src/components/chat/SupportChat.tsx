@@ -38,7 +38,6 @@ function linkifyText(text: string): React.ReactNode {
 
 export function SupportChat() {
   const { id } = useParams()
-  const fileInput = useRef<HTMLInputElement | null>(null)
 
   const { chatOpened, messages, message, setMessage, sendMessage, markMessageAsRead, toggleChat, getUnreadMessagesCount } = useChatStore()
 
@@ -199,18 +198,36 @@ export function SupportChat() {
           </ScrollableFeed>
 
           {/* Input */}
-          <div className="min-h-[82px] border-t border-gray-200 bg-white p-4">
-            <div className="flex items-center space-x-2">
-              <input ref={fileInput} type="file" className="hidden" onChange={onFileChange} />
-              <Paperclip className="cursor-pointer" onClick={() => fileInput.current?.click()} />
+          <div className="border-t border-gray-200 bg-white p-4">
+            <div className="flex w-full items-center gap-2">
+              <input
+                id="chat-file"
+                type="file"
+                accept="image/*"
+                onChange={onFileChange}
+                className="clip-[rect(0,0,0,0)] absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0"
+              />
+
+              {/* paperclip */}
+              <label htmlFor="chat-file" className="shrink-0 cursor-pointer">
+                <Paperclip className="h-6 w-6 text-gray-600 hover:text-gray-800" />
+              </label>
+
+              {/* text input */}
               <input
                 type="text"
                 placeholder="Type your message..."
                 value={message}
                 onChange={handleInputChange}
-                className="flex-grow rounded-full bg-[#F3F4F6] p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="min-w-0 flex-1 rounded-full bg-[#F3F4F6] p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <button onClick={handleSend} className="rounded-full bg-blue-600 p-3 text-white hover:bg-blue-700">
+
+              {/* send */}
+              <button
+                onClick={handleSend}
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-blue-600 text-white hover:bg-blue-700"
+                aria-label="Send"
+              >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
                 </svg>

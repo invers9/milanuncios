@@ -19,7 +19,7 @@ const Message = (props: IProps) => {
   const closeModal = () => setModalVisible(false)
 
   const createObserver = () => {
-    const options = { root: null, rootMargin: '0px', threshold: 1.0 }
+    const options = { root: null, rootMargin: '0px', threshold: 0.2 }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {

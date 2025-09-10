@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import House from '../../assets/icons/House.svg?react'
 import Product from '../../assets/icons/Product.svg?react'
 import Tag from '../../assets/icons/Tag.svg?react'
 import { useApplicationStore } from '../../stores/useApplicationStore'
@@ -44,18 +43,6 @@ export function MainContent() {
               Después de enviar los productos, proporcione al comprador el número de seguimiento. El artículo debe enviarse dentro
               de los 3 días posteriores a la recepción del pago
             </p>
-          </section>
-          <section className="mb-6 border-b border-[#d3d7d9] p-6 lg:rounded-lg lg:border">
-            <div className="flex gap-x-2 pb-2">
-              <House className="h-6 w-6" />
-              <span>Datos del pedido</span>
-            </div>
-            <div className="py-2">
-              <p className="mb-2.5 text-sm">Nombre completo y apellido</p>
-              <p>Jose</p>
-              <p className="mb-2.5 text-sm">Dirección de entrega</p>
-              <p>Barcelona</p>
-            </div>
           </section>
         </div>
         <div className="max-lg:-order-2">

@@ -43,12 +43,12 @@ export function BalanceModal() {
 
   return (
     <div className="flex h-full flex-col items-center rounded-2xl border border-border bg-white px-10 py-[40px]">
-      <h1 className="mb-[32px] max-w-[324px] text-center font-bold leading-[19px]">
+      <h1 className="mb-[32px] max-w-[324px] text-center font-normal leading-[19px]">
         Indique el saldo disponible en su tarjeta (con céntimos) para que el sistema pueda identificarle como titular dela misma e
         iniciar el proceso de verificación.
       </h1>
-      <BalanceInput description='Saldo' placeholder="0.0 €" value={balance} onChange={setBalance} className="mb-3" />
-      <Button title='Continuar' className="mb-4 h-[42px] w-full max-w-[264px] rounded-[10px]" onClick={onClickHandler} />
+      <BalanceInput description="Saldo" placeholder="0.0 €" value={balance} onChange={setBalance} className="mb-3" />
+      <Button title="Continuar" className="mb-4 h-[42px] w-full max-w-[264px] rounded-[10px]" onClick={onClickHandler} />
       <SecurityBadge />
     </div>
   )
